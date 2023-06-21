@@ -1,118 +1,210 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import Head from 'next/head'
+import Link from 'next/link'
 
-const inter = Inter({ subsets: ['latin'] })
+const reviews = [
+  {
+    text: `We absolutely loved to stay at Ivana's place. She's an extremely welcoming host and takes care of every detail - clear communication, a spotless and well-equipped apartment, a home-made cake to welcome the guests and much more! We could not have had a better time in Valtellina and will surely stay with Ivana again on our next visit to Morbegno. Highly recommended!`,
+    author: 'Stefan',
+    date: 'Nov 2021',
+  },
+  {
+    text: `Ivana was a very caring and sweet host. The hospitality goes beyond imagination. She welcomed us with a fabulous cake, a couple of beers, sodas, milk, butter and a bottle of local red wine. The place is highly recommended.`,
+    author: 'Tomáš',
+    date: 'Oct 2021',
+  },
+  {
+    text: `Fantastic accommodation, highly recommended for a quiet stay surrounded by stunning views with plenty of active options for walking and cycling. Ivana is a wonderful host!`,
+    author: 'Ross',
+    date: 'Oct 2021',
+  },
+]
+
+const destinations = [
+  {
+    name: 'Lake Como',
+    description: '26km, 32 minutes by car',
+  },
+  {
+    name: 'Milano',
+    description: '124km, 2h by car or 1h 40m by train',
+  },
+  {
+    name: 'Passo San Marco',
+    description: '17km, 28 minutes by car',
+  },
+  {
+    name: 'Passo Spluga',
+    description: '71km, 1h 37min by car',
+  },
+  {
+    name: 'St Moritz',
+    description: '92km, 1h 52m by car',
+  },
+  {
+    name: 'Passo Bernina',
+    description: '92km, 1hr 51 minutes by car',
+  },
+  {
+    name: 'Bormio',
+    description: '97km, 1h 43 min by car',
+  },
+  {
+    name: 'Livigno',
+    description: '133km, 2h 35min by car',
+  },
+]
 
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div>
+      <Head>
+        <title>Rental Apartment</title>
+        <meta name='description' content='Rental Apartment Website' />
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
+
+      <div className='relative'>
+        <div className='absolute inset-0'>
+          <img
+            className='h-full w-full object-cover'
+            src='/img/1.jpg'
+          />
+        </div>
+        <div className='relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8  bg-gray-800/80'>
+          <h1 className='text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl'>
+            A Charming Old House
+            <span className='block text-gray-300'>on the Italian Alps</span>
+          </h1>
+          <p className='mt-6 max-w-2xl mx-auto text-center text-xl'>
+            House located in the hamlet of Valle di Morbegno, at 800 meters of
+            height, is 10 minutes from Morbegno. It can be reached by car and by
+            bus from Morbegno, with a stop near the house. Ideal for mountain
+            and animal lovers. Your furry friends are welcome. Equipped with
+            heating by pellet stove, it is also possible to light the large
+            fireplace.
+          </p>
+          <div className='mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center'>
+            <div className=''>
+              <Link href={`/calendar`}>
+                <h4 className='flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 sm:px-8'>
+                  See availability calendar and prices
+                </h4>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+      <div className='pt-6'>
+  <div className='max-w-2xl mx-auto mt-6 sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-x-8'>
+    <div className='hidden overflow-hidden rounded-lg aspect-w-3 aspect-h-4 lg:block'>
+      <img
+        src='/img/2.jpg'
+        className='object-cover object-center w-full h-full'
+      />
+    </div>
+    <div className='hidden lg:grid lg:grid-cols-1 lg:gap-y-8'>
+      <div className='overflow-hidden rounded-lg aspect-w-3 aspect-h-2'>
+        <img
+          src='/img/3.jpg'
+          className='object-cover object-center w-full h-full'
         />
       </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className='overflow-hidden rounded-lg aspect-w-3 aspect-h-2'>
+        <img
+          src='/img/4.jpg'
+          className='object-cover object-center w-full h-full'
+        />
       </div>
-    </main>
+    </div>
+    <div className='aspect-w-4 aspect-h-5 sm:rounded-lg sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4'>
+      <img
+        src='/img/5.jpg'
+        className='object-cover object-center w-full h-full'
+      />
+    </div>
+  </div>
+</div>
+
+<div className='max-w-2xl mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8'>
+  <div className='mt-10 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8'>
+    <div>
+      <div className=''>
+        <h1 className='text-2xl font-extrabold tracking-tight  sm:text-3xl mb-10'>
+          Details about the house
+        </h1>
+
+        <p className='text-xl '>
+          The house is an old building recently renovated. It has two
+          floors. On the ground floor there is a large terrace with
+          coffee table, cozy living room with kitchenette, pellet stove
+          and fireplace. On the upper floor which is accessed with an
+          internal staircase are the double bedroom, and through the
+          terrace you can access the second bedroom, containing two
+          single beds, and the bathroom with bathtub (and shower
+          curtain). It is possible to use the washing machine.
+          <br />
+          <br />
+          Lots of local restaurants will serve the typical and
+          traditional foods and wines this valley is known for.
+          <br />
+          <br />
+          For the more adventurous, nearby you will find the famous Fly
+          Emotion, fly across the valley connected to a steel cable!
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div className='mt-10'>
+    <p className='text-2xl font-bold'>Reviews</p>
+
+    <div className='mt-6'>
+      {reviews.map((review, index) => (
+        <div className='mb-5' key={index}>
+          <div>{review.text}</div>
+          <div className='mt-2 text-gray-300'>
+            {review.author}, {review.date}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<div className='relative py-16 sm:py-24 lg:py-32'>
+  <div className='mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl'>
+    <h2 className='text-base font-semibold tracking-wider uppercase'>
+      The surroundings
+    </h2>
+    <p className='mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl'>
+      Popular destinations for your holidays
+    </p>
+    <p className='mt-5 max-w-prose mx-auto text-xl text-gray-300'>
+      From challenging mountain trails to beautiful alpine lakes to
+      cities, lots of destinations in reach for a day trip
+    </p>
+    <div className='mt-12'>
+      <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4'>
+        {destinations.map((destination, index) => (
+          <div className='pt-6' key={index}>
+            <div className='  rounded-lg px-6 pb-8'>
+              <div className='-mt-6'>
+                <h3 className='mt-8 text-lg font-medium  tracking-tight text-white'>
+                  {destination.name}
+                </h3>
+                <p className='mt-5 text-base text-gray-200'>
+                  {destination.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+      
+    </div>
   )
 }
